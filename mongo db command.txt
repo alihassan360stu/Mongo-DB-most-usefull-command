@@ -1,0 +1,76 @@
+1 . db ----> (show the current dataBase)
+1.1 show dbs  (show all databases )
+
+2 . use <database name> ---->> (craete new dataBase and switch or if allready availible then only switch)
+
+3 . db.createCollection("collection name") ---> (used to create empty collection )
+
+4 . show collections   ---> (show all collection availible in current database)
+
+5 . db.<collection name>.drop()  ---> (used to delete the select collection)
+
+6 . db.data.insert({"__id":2,name:"haroon","fname":"saadat ALi"}) --->( insert single document in collectiob)
+
+7 . db.data.insert([ {"__id":3,name:"ali raza",fname:"muhabbart ali"},{"__id":4,name:"shayyan",fname:"shenno"}]) --->(insert multiple documents)
+
+8 . db.data.insertOne({"__id":2,name:"haroon","fname":"saadat ALi"}) --->( particular collection can be inserted ) 
+
+9 . db.developers.insertMany([ { _id: 20, devname: "John Wick" }, { _id: 21, devname: "Ganesh Roy"}]) ---> ( multiple documents can be inserted)
+
+10 . db.data.find().pretty() ---> ( used to show the collection documnet in the form of api like javaScript object )
+
+                                      using query parametr of find() method
+
+11 . dv.collection.find({id:2}) ---> (filter record according to their id)
+
+12 . dv.collection.find({name:"ali hassan"}) ---> (filter record according to their name)
+
+13 . dv.collection.find({name:"ali hassan",id:1}) ---> (filter record according work just like ligical and operator ,if both availible then will print otherwise nothing will show)
+
+                                       using comparisms opeartor
+
+14 .  db.data.find({__id : { $gt : 2 } })  ---> (appling greater then opeartor { > }
+
+15 .  db.data.find({__id : { $lt : 2 } })  ---> (appling less then opeartor  { < }
+
+16 .  db.data.find({__id : { $eq : 2 } })  ---> (appling equality opeartor { = }
+
+17 .  db.data.find({__id : { $ne : 2 } })  ---> (appling not equality opeartor  { ! }
+
+18 .  db.data.find({__id : { $gte : 2 } })  ---> (appling greater and equality  opeartor {>= }
+
+19 .  db.data.find({__id : { $lte : 2 } })  ---> (appling less and equality opeartor  { <= }
+
+20 .  db.data.find({name : { $in :["ali hassan","haroon"]}})  ---> (filter those document  which array value included)
+
+21 .  db.data.find({name : { $nin :["ali hassan","haroon"]}})  ---> (filter those document  which array value not included)
+
+                                         logical opeartor
+
+22 . db.data.find({$and: [ { name:"ali hassan" }  ,  { __id : 1 }  ] })  --- > (appling logical { and } operator )
+
+23 . db.data.find ({$or: [ { name:"ali hassan" }  ,  { __id : 1 }  ] })  --- > (appling logical { or  } operator )
+
+24 . db.data.find({$nor: [ { name:"ali hassn"  }  ,  { __id : 12}  ] })  --- > (appling logical { nor } operator )
+
+                                                 update collection 
+
+25 . db.data.update({__id:2},{ $set: { name:["ali hassan","haroon hassan","ali raza"]}}) --> ( only update one document )
+
+26 . db.data.updateMany({__id:2},{ $set: { name:["ali hassan","haroon hassan","hassan raza"]}}) -->  ( update all document if condition is true)
+
+27 . db.data.find().pretty().limit(2) --- >( print first 2 document )
+
+28 . db.data.find().pretty().skip(2) --- > (skiped first 2 document )
+
+                                               projected parameter of find() parameter
+
+29 . db.data.find({__id:1},{name:1,__id:1})  --> ( only printed id and name other field skiped in document )
+
+                                               delete field from collection
+
+30 . db.data.deleteOne({__id:12})  ---> ( delete one document )
+
+31 . db.data.deleteMany({__id:12}) --->    ( delete many document if condition id true )
+
+32 . db.data.remove({__id:2})    ----> ( just like deleteMany )
